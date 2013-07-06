@@ -1,6 +1,6 @@
 var express = require('express');
 
-var hello = new Buffer();
+//var hello = new Buffer();
 
 //var hello = fs.readFileSync ('index.html');
 
@@ -9,7 +9,7 @@ var hello = new Buffer();
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('hello');
+  response.send("hello");
 });
 
 var port = process.env.PORT || 5000;
