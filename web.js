@@ -9,7 +9,7 @@ var hello_str = hello.toString("utf-8");
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send(hello_str.slice(0,-1));
+  response.send('hello');
 });
 
 var port = process.env.PORT || 5000;
