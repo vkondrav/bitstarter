@@ -30,14 +30,26 @@ var CHECKSFILE_DEFAULT = "checks.json";
 var assertFileExists = function(infile) {
     var instr = infile.toString();
     if(!fs.existsSync(instr)) {
-        console.log("%s does not exist. Exiting.", instr);
-        process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
+        console.log("%s does not exist localy. Exiting.", instr);
+        process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code	
     }
+
     return instr;
 };
 
+var assertURLExists = function(inURL){
+    var inst = inURL.toString();
+
+    rest.get(instr).on('complete', function(result) {
+	if (result instanceof Error) {
+	    console.log('Error: ' + result.message);
+	} else {
+	    console.log('URL found');
+	}
+    });
+
 var cheerioHtmlFile = function(htmlfile) {
-    return cheerio.load(fs.readFileSync(htmlfile));
+    return cheerio.load(fs.readFileSync(rest.gethtmlfile));
 };
 
 var loadChecks = function(checksfile) {
