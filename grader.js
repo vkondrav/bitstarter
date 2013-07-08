@@ -46,9 +46,7 @@ var assertURLExists = function(inURL){
     rest.get(instr).on('complete', function(result) {
   	  if (result instanceof Error) {
 	      console.log('Error: ' + result.message);
-	  } else {
-	      console.log('URL found');	      
-  	  }
+	  }
     });
 
     return instr
@@ -57,10 +55,11 @@ var assertURLExists = function(inURL){
 
 
 var cheerioHtmlFile = function(htmlfile) {
+    rest.get(htmlfile.toString()).on('complete', function(data){
+	fs.writeFileSync('placeholder.html', data);
+    });     
     
-    rest.get(htmlfile.toString()).on('complete', function(data){});			
-        
-    return cheerio.load(rest.data);
+    return cheerio.load(fs.readFileSync('placeholder.html'));
 };
 
 var restlerHtmlFile = function(htmlfile) {
