@@ -41,12 +41,14 @@ var assertURLExists = function(inURL){
     var inst = inURL.toString();
 
     rest.get(instr).on('complete', function(result) {
-	if (result instanceof Error) {
-	    console.log('Error: ' + result.message);
-	} else {
-	    console.log('URL found');
-	}
+  	  if (result instanceof Error) {
+  	    console.log('Error: ' + result.message);
+  	  } else {
+  	    console.log('URL found');
+  	  }
     });
+};
+
 
 var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(rest.gethtmlfile));
